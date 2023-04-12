@@ -1,0 +1,39 @@
+body {
+    background-color: blueviolet;
+    margin: 0;
+}
+#container {
+    background-image: url("./img/a.jpg");
+    height: 100vh;
+    background-size: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    transition: 1.5s ease-in-out;
+}
+/* .bigContainer{
+    background-size: 300% !important;
+} */
+img {
+    width: 10%;
+    position: absolute;
+    transition: 1.5s ease-in-out;
+    transition-property: width, top, left;
+}
+.big {
+    width: 100%;
+    opacity: 1;
+    aspect-ratio: 16/9;
+    top: 0 !important;
+    left: 0 !important;
+}
+img:not(.big) {
+    filter: brightness(99999);
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    box-shadow: 0 0  5px white;
+}
+a {
+    position: absolute;
+    z-index: 50;
+}
