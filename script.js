@@ -86,3 +86,6 @@ window.addEventListener('mousedown', (event) => {
     let mousePos = { x: event.clientX, y: event.clientY };
     console.log(`%cposX: ${Math.round((mousePos.x-7.5)/1920*100)}, posY: ${Math.round((mousePos.y-7.5)/1080*100)}`, 'color: #707070')
 });
+window.addEventListener("load", (event) => {
+    document.getElementById("loader").style.display = "none"
+});
