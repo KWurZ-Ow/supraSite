@@ -1,39 +1,73 @@
 body {
-    background-color: blueviolet;
+    background: linear-gradient(135deg, blueviolet, blue);
     margin: 0;
 }
 #container {
-    background-image: url("./img/a.jpg");
     height: 100vh;
-    background-size: 100%;
-    background-position: center;
-    background-repeat: no-repeat;
-    transition: 1.5s ease-in-out;
 }
-/* .bigContainer{
-    background-size: 300% !important;
-} */
-img {
-    width: 10%;
+
+
+.displayer{
     position: absolute;
-    transition: 1.5s ease-in-out;
-    transition-property: width, top, left;
+    background-size: cover ;
+    background-position: center;
+    transition: 0.3s;
 }
-.big {
-    width: 100%;
+.displayer.main{
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    z-index: 1;
     opacity: 1;
-    aspect-ratio: 16/9;
-    top: 0 !important;
-    left: 0 !important;
 }
-img:not(.big) {
-    filter: brightness(99999);
+.displayer.backup{
+    opacity: 0;
+    top: calc((100vh - 80vh) / 2);
+    left: calc((100vw - 80vw) / 2);
+    height: 80vh;
+    width: 80vw;
+    z-index: 2;
+    background-color: aqua;
+}
+
+
+.dot{
+    animation: appear 0.3s;
+    z-index: 5;
+    background-color: white;
+    width: 15px;
+    height: 15px;
     border-radius: 50%;
-    width: 30px;
-    height: 30px;
-    box-shadow: 0 0  5px white;
+    transition: 0.3s;
+    position: absolute;
 }
+.dot:hover{
+    cursor: pointer;
+    box-shadow: 0 0 15px white;
+}
+@keyframes appear {
+    from{
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+
 a {
     position: absolute;
     z-index: 50;
+    background-color: white;
+    border-radius: 5px;
+    padding: 5px;
+    margin: 10px;
+    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5);
+    transition: 0.3s;
+}
+a:hover{
+    cursor: pointer;
+    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.5) inset;
+    transform: translate(3px, 3px);
 }
