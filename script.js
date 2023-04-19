@@ -7,6 +7,7 @@ let aDisplayer = document.getElementById("a")
 let bDisplayer = document.getElementById("b")
 let currentDisplayer = aDisplayer
 let backupDisplayer = bDisplayer
+let backButton = document.getElementById("back")
 
 let urlsList = []
 function loadUrls(imgs){
@@ -24,10 +25,15 @@ urlsList.forEach(url => {
 });
 console.log("Liste des images : ", urlsList)
 
+backButton.onclick = () => back()
 currentDisplayer.style.backgroundImage = 'URL("./img/a.jpg")'
 createDots(currentImg)
 
 function back() {
+    if (previousImgs.length == 0){
+        console.log("Non")
+        return
+    }
     currentImg = previousImgs[previousImgs.length-1]
     transi()
     createDots(currentImg)
@@ -77,6 +83,6 @@ function removeDots() {
 }
 
 window.addEventListener('mousedown', (event) => {
-    mousePos = { x: event.clientX, y: event.clientY };
-    console.log(`posX: ${Math.round((mousePos.x-7.5)/1920*100)}, posY: ${Math.round((mousePos.y-7.5)/1080*100)}`)
+    let mousePos = { x: event.clientX, y: event.clientY };
+    console.log(`%cposX: ${Math.round((mousePos.x-7.5)/1920*100)}, posY: ${Math.round((mousePos.y-7.5)/1080*100)}`, 'color: #707070')
 });

@@ -2,6 +2,9 @@ body {
     background: linear-gradient(135deg, blueviolet, blue);
     margin: 0;
 }
+*::selection{
+    opacity: 0;
+}
 #container {
     height: 100vh;
 }
