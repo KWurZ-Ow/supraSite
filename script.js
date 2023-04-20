@@ -1,14 +1,18 @@
 import photosList from "./imgs.json"  assert { type: 'json' }
 
+//images
 let currentImg = photosList
 let previousImgs = []
+//dom elements
 let container = document.getElementById("container")
+let backButton = document.getElementById("back")
+//displayers
 let aDisplayer = document.getElementById("a")
 let bDisplayer = document.getElementById("b")
 let currentDisplayer = aDisplayer
-let backupDisplayer = bDisplayer
-let backButton = document.getElementById("back")
+let nextDisplayer = bDisplayer
 
+//preload images
 let urlsList = []
 function loadUrls(imgs){
     imgs.map((img) => {
@@ -25,6 +29,7 @@ urlsList.forEach(url => {
 });
 console.log("Liste des images : ", urlsList)
 
+//init
 backButton.onclick = () => back()
 currentDisplayer.style.backgroundImage = 'URL("./img/a.jpg")'
 createDots(currentImg)
@@ -41,17 +46,20 @@ function back() {
 }
 
 function transi(){
-    // let buff = currentDisplayer
-    // currentDisplayer = backupDisplayer
-    // backupDisplayer = buff
-
-    // currentDisplayer.classList.add("main")
-    // currentDisplayer.classList.remove("backup")
-    // backupDisplayer.classList.remove("main")
-    // setTimeout(() => {
-    //     backupDisplayer.classList.add("backup")
-    // }, 500);
-    currentDisplayer.style.backgroundImage = `URL("./img/${currentImg.nom}.jpg")`
+    nextDisplayer.style.backgroundImage = `URL("./img/${currentImg.nom}.jpg")`
+    nextDisplayer.classList.add("main")
+    nextDisplayer.classList.remove("next")
+    currentDisplayer.classList.remove("main")
+    
+    setTimeout(() => {
+        currentDisplayer.classList.remove("main")
+        currentDisplayer.classList.add("next")
+    
+        //swap
+        let buff = currentDisplayer
+        currentDisplayer = nextDisplayer
+        nextDisplayer = buff
+    }, 1000);
 }
 
 function createDots(items) {

@@ -29,37 +29,42 @@ body {
 
 .displayer{
     position: absolute;
-    background-size: cover ;
+    background-size: 200% ;
     background-position: center;
-    transition: 0.3s;
-}
-.displayer.main{
-    top: 0;
-    left: 0;
     height: 100vh;
     width: 100vw;
-    z-index: 2;
+    z-index: 0;
+    transition: 1.5s;
+    transition-property: background-size;
+}
+.displayer.main{
+    transition: 0.6s;
+    transition-property: opacity, top, left, width, height;
+    background-size: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1;
     opacity: 1;
 }
-.displayer.backup{
+.displayer.next{
     opacity: 0;
+    z-index: 2;
+    background-size: 100%;
     top: calc((100vh - 80vh) / 2);
     left: calc((100vw - 80vw) / 2);
     height: 80vh;
     width: 80vw;
-    z-index: 3;
     background-color: aqua;
 }
 
 
 .dot{
-    animation: appear 0.3s;
+    animation: appear 0.9s;
     z-index: 5;
     background-color: white;
     width: 15px;
     height: 15px;
     border-radius: 50%;
-    transition: 0.3s;
     position: absolute;
 }
 .dot:hover{
@@ -67,10 +72,13 @@ body {
     box-shadow: 0 0 15px white;
 }
 @keyframes appear {
-    from{
+    0%{
         opacity: 0;
     }
-    to {
+    66%{
+        opacity: 0;
+    }
+    100% {
         opacity: 1;
     }
 }
