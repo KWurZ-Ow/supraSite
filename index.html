@@ -56,12 +56,17 @@
         camera.position.y = 1.5;
         
         //===================================================== lights
-        var light = new THREE.DirectionalLight(0xefefff, 3);
-        light.position.set(1, 1, 1).normalize();
-        scene.add(light);
-        var light = new THREE.DirectionalLight(0xffefef, 0.3);
-        light.position.set(-1, -1, -1).normalize();
-        scene.add(light);
+        var keyLight = new THREE.DirectionalLight(0xefefff, 3);
+        keyLight.position.set(2, 2, 2)
+        scene.add(keyLight);
+
+        var fillLight = new THREE.DirectionalLight(0xffefef, 0.3);
+        fillLight.position.set(-2, -2, -2)
+        scene.add(fillLight);
+
+        const helper1 = new THREE.DirectionalLightHelper( keyLight, 1, 0xff0000);
+        const helper2 = new THREE.DirectionalLightHelper( fillLight, 0.5);
+        scene.add( helper1, helper2 );
         
         //===================================================== resize
         window.addEventListener("resize", function() {
@@ -128,24 +133,35 @@
             
             renderer.render(scene, camera);
         }
+        render();
         
         const controls = new OrbitControls( camera, renderer.domElement );
         controls.listenToKeyEvents( window ); // optional
         
         //controls.addEventListener( 'change', render ); // call this only in static scenes (i.e., if there is no animation loop)
-        
         controls.enableDamping = true; // an animation loop is required when either damping or auto-rotation are enabled
         controls.dampingFactor = 0.05;
-        
         controls.screenSpacePanning = false;
-        
         controls.minDistance = 1;
         controls.maxDistance = 50;
-        
         controls.maxPolarAngle = Math.PI / 2;
         
-        render();
-        
+        //Interface
+        const gui = new dat.GUI()
+        const lightFolder = gui.addFolder('Lumières')
+        const keyLightFolder = gui.addFolder('Keylight')
+        keyLightFolder.add(keyLight.position, 'x', -10, 10)
+        keyLightFolder.add(keyLight.position, 'y', -10, 10)
+        keyLightFolder.add(keyLight.position, 'z', -10, 10)
+        keyLightFolder.add(helper1, 'visible')
+        const fillLightFolder = gui.addFolder('FillLight')
+        fillLightFolder.add(fillLight.position, 'x', -10, 10)
+        fillLightFolder.add(fillLight.position, 'y', -10, 10)
+        fillLightFolder.add(fillLight.position, 'z', -10, 10)
+        fillLightFolder.add(helper2, 'visible')
+        lightFolder.open()
+        keyLightFolder.open()
+        fillLightFolder.open()        
     </script>
 </body>
 </html>
