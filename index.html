@@ -33,14 +33,13 @@
 </head>
 <body>  
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r124/three.min.js"></script>
-    <script src="https://unpkg.com/three@0.126.0/examples/js/loaders/GLTFLoader.js"></script>
     <script src="https://unpkg.com/dat.gui@latest"></script>
     
     
     <script type="module">
         import { OrbitControls } from 'https://unpkg.com/three@0.126.0/examples/jsm/controls/OrbitControls.js';
         import Stats from 'https://unpkg.com/three@0.126.0/examples/jsm/libs/stats.module.js';
-        import { LightProbeGenerator } from 'https://unpkg.com/three@0.126.0/examples/jsm/lights/LightProbeGenerator.js';
+        import { FBXLoader } from "https://unpkg.com/three@0.126.0/examples/jsm/loaders/FBXLoader.js"
         
         //===================================================== canvas
         var renderer = new THREE.WebGLRenderer({ alpha: true, antialiase: true });
@@ -59,11 +58,11 @@
         var keyLight = new THREE.DirectionalLight(0xefefff, 3);
         keyLight.position.set(2, 2, 2)
         scene.add(keyLight);
-
+        
         var fillLight = new THREE.DirectionalLight(0xffefef, 0.3);
         fillLight.position.set(-2, -2, -2)
         scene.add(fillLight);
-
+        
         const helper1 = new THREE.DirectionalLightHelper( keyLight, 1, 0xff0000);
         const helper2 = new THREE.DirectionalLightHelper( fillLight, 0.5);
         scene.add( helper1, helper2 );
@@ -81,27 +80,36 @@
         document.body.appendChild( stats.dom );
         
         //===================================================== model
-        var loader = new THREE.GLTFLoader();
-        var mixer;
-        var model;
-        loader.load(
-        "./placeholder.glb", function(gltf) {
+        let mixer
+        let modelReady = false
+        const animationActions = []
+        let activeAction
+        let lastAction
+        const fbxLoader = new FBXLoader()
+        
+        fbxLoader.load(
+        './Dancing.fbx',
+        (object) => {
+            object.scale.set(0.01, 0.01, 0.01)
+            mixer = new THREE.AnimationMixer(object)
             
-            gltf.scene.traverse( function( node ) {
-                if ( node instanceof THREE.Mesh ) { 
-                    node.castShadow = true; 
-                    node.material.side = THREE.DoubleSide;
-                }
-            });
+            const animationAction = mixer.clipAction(
+            (object).animations[0]
+            )
+            animationActions.push(animationAction)
+            activeAction = animationActions[0]
+            activeAction.play()
             
-            
-            model = gltf.scene;
-            model.scale.set(1.5,1.5,1.5);
-            scene.add(model);
-            
-            mixer = new THREE.AnimationMixer(model);
-            // mixer.clipAction(gltf.animations[1]).play();
-        });
+            scene.add(object)
+        },
+        (xhr) => {
+            console.log((xhr.loaded / xhr.total) * 100 + '% loaded')
+        },
+        (error) => {
+            console.log(error)
+        }
+        )
+        
         
         //stars
         for (let i = 0; i < 700; i++) {
@@ -130,6 +138,7 @@
             if (mixer != null) mixer.update(delta);
             // if (model) model.rotation.y += 0.010;
             stats.update();
+            if (modelReady) mixer.update(clock.getDelta())
             
             renderer.render(scene, camera);
         }
