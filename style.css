@@ -11,7 +11,7 @@ body {
     /* filter: blur(5px); */
 }
 .menu{
-    background-color: cyan;
+    background-color: black;
     opacity: 0;
     height: 100svh;
     width: 300px;
@@ -20,7 +20,7 @@ body {
     top: 0;
     transform: translateX(280px);
     transition: 0.3s ease-out;
-    z-index: 2;
+    z-index: 4;
 }
 .menu:hover{
     opacity: 1;
@@ -67,20 +67,20 @@ body {
 }
 #loader .loader{
     grid-area: loader;
-    width: 50%;
+    width: 20%;
 }
 #loader .title{
     grid-area: title;
-    font-size: 10em;
-    letter-spacing: 0;
+    font-size: 4em;
+    letter-spacing: 30px;
     animation: titleSchrink 1s ease-in-out;
 }
 @keyframes titleSchrink {
     from {
-        letter-spacing: 30px;
+        letter-spacing: 60px;
     }
     to {
-        letter-spacing: 0;
+        letter-spacing: 30px;
     }
 }
 .imgTop{

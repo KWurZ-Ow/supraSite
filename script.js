@@ -60,9 +60,9 @@ fbxLoader.load('./assets/Boule.fbx',(object) => {
     console.log((xhr.loaded / xhr.total) * 100 + '% loaded')
     // document.getElementById('progress').style.width = `${(xhr.loaded / xhr.total) * 100}%`
     if (xhr.loaded == xhr.total){
-        document.getElementById('loader').style.opacity = 0
+        // document.getElementById('loader').style.opacity = 0
         setTimeout(() => {
-            document.getElementById('loader').style.display = "none"
+            // document.getElementById('loader').style.display = "none"
             document.getElementsByClassName('dg')[0].style.zIndex = 5 //remet l'UI au premier plan (wtf)
         }, 1500);
     }
