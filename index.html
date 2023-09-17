@@ -4,17 +4,26 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Test webgl</title>
+    <title>Saucisse</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌭</text></svg>">
     <link rel="stylesheet" href="./style.css">
 </head>
-<body>  
+<body>
+    <div id="bubble"></div>
     <div id="loader">
-        <img src="./load.gif" alt="loader">
-        <div id="bar">
-            <div id="progress"></div>
-        </div>
+        <img class="line" src="./assets/trait1.svg">
+        <img class="line2" src="./assets/trait1.svg">
+        <img class="reverse" src="./assets/trait1.svg">
+        <img class="reverse2" src="./assets/trait1.svg">
+        <img class="loader" src="./assets/load.gif">
+        <h1 class="title">XYXYXYXYXYXYX</h1>
     </div>
+    <!-- <div class="imgTop">
+        <canvas id="canvas"></canvas>
+        <div id="container"></div>
+    </div> -->
     <div class="menu"></div>
+    <div id="canva"></div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r124/three.min.js"></script>
     <script src="https://unpkg.com/dat.gui@latest"></script>  
     <script type="module" src="./script.js"></script>
