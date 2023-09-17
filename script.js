@@ -60,9 +60,9 @@ fbxLoader.load('./assets/Boule.fbx',(object) => {
     console.log((xhr.loaded / xhr.total) * 100 + '% loaded')
     // document.getElementById('progress').style.width = `${(xhr.loaded / xhr.total) * 100}%`
     if (xhr.loaded == xhr.total){
-        // document.getElementById('loader').style.opacity = 0
+        document.getElementById('loader').style.opacity = 0
         setTimeout(() => {
-            // document.getElementById('loader').style.display = "none"
+            document.getElementById('loader').style.display = "none"
             document.getElementsByClassName('dg')[0].style.zIndex = 5 //remet l'UI au premier plan (wtf)
         }, 1500);
     }
@@ -137,47 +137,58 @@ keyLightFolder.open()
 fillLightFolder.open()
 
 //cicles
-let bubble = document.getElementById('bubble')
+// let bubble = document.getElementById('bubble')
 
-let container = document.getElementById('container')
-let circles = [
-    {posx: 0, posy: 0, content: "moi"},
-    {posx: 0, posy: 0, content: "bulle"},
-    {posx: 0, posy: 0, content: "autre bulle"},
-    {posx: 0, posy: 0, content: "ou encore une bulle beaucoup plus longue"}
-]
+// let container = document.getElementById('container')
+// let circles = [
+//     {posx: 0, posy: 0, content: "moi"},
+//     {posx: 0, posy: 0, content: "bulle"},
+//     {posx: 0, posy: 0, content: "autre bulle"},
+//     {posx: 0, posy: 0, content: "ou encore une bulle beaucoup plus longue"}
+// ]
 
-circles.forEach(circle => {
-    let element = document.createElement('div')
-    element.classList.add("circle")
-    element.onmouseenter = () => {
-        bubble.innerHTML = circle.content
-        bubble.style.display = "block"
-    }
-    element.onmouseleave = () => {
-        bubble.innerHTML = null
-        bubble.style.display = "none"
-    }
-    container.appendChild(element)
-});
+// circles.forEach(circle => {
+//     let element = document.createElement('div')
+//     element.classList.add("circle")
+//     element.onmouseenter = () => {
+//         bubble.innerHTML = circle.content
+//         bubble.style.display = "block"
+//     }
+//     element.onmouseleave = () => {
+//         bubble.innerHTML = null
+//         bubble.style.display = "none"
+//     }
+//     container.appendChild(element)
+// });
+//
+// let canvas = document.getElementById('canvas');
+// let context = canvas.getContext('2d');
 
-let canvas = document.getElementById('canvas');
-let context = canvas.getContext('2d');
+// canvas.height = window.innerHeight;
+// canvas.width = window.innerWidth;
+// context.beginPath();
+// context.moveTo(0,0);
+// context.lineTo(1000, 800);
+// context.lineWidth = 0.5;
 
-canvas.height = window.innerHeight;
-canvas.width = window.innerWidth;
-context.beginPath();
-context.moveTo(0,0);
-context.lineTo(1000, 800);
-context.lineWidth = 0.5;
+// context.strokeStyle = '#ffffff';
+// context.stroke();
 
-context.strokeStyle = '#ffffff';
-context.stroke();
+// window.addEventListener('mousemove', (event) => {
+//     if (bubble.innerHTML){
+//         bubble.style.left = `${event.clientX + 15}px`
+//         bubble.style.top = `${event.clientY}px`
+//     }
+// });
 
-window.addEventListener('mousemove', (event) => {
-    if (bubble.innerHTML){
-        bubble.style.left = `${event.clientX + 15}px`
-        bubble.style.top = `${event.clientY}px`
-    }
-});
+let menu = document.getElementsByClassName('menu')[0]
+let isMenuOn = false
 
+menu.addEventListener("mouseenter", (e) => {
+    document.getElementById('canva').classList.add("blury")
+    isMenuOn = true
+})
+menu.addEventListener("mouseleave", (e) => {
+    document.getElementById('canva').classList.remove("blury")
+    isMenuOn = false
+})
