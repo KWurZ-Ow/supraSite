@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Calque_1" data-name="Calque 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20.7 1080">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: none;
+        stroke: #fff;
+        stroke-miterlimit: 10;
+      }
+
+      .cls-2 {
+        fill: #fff;
+        font-family: LucidaConsole, 'Lucida Console';
+        font-size: 16px;
+      }
+    </style>
+  </defs>
+  <g>
+    <text class="cls-2" transform="translate(0 936.97)"><tspan x="0" y="0">A</tspan><tspan x="0" y="12">A</tspan><tspan x="0" y="24">A</tspan><tspan x="0" y="36">A</tspan><tspan x="0" y="48">A</tspan></text>
+    <text class="cls-2" transform="translate(10.69 949.57)"><tspan x="0" y="0">B</tspan><tspan x="0" y="12">B</tspan><tspan x="0" y="24">B</tspan><tspan x="0" y="36">B</tspan><tspan x="0" y="48">B</tspan></text>
+  </g>
+  <line class="cls-1" x1="10.35" y1="910.89" x2="10.35"/>
+  <polyline class="cls-1" points="1.32 901.57 1.32 910.89 19.37 910.89 19.37 901.57"/>
+  <line class="cls-1" x1="10.35" y1="1014.49" x2="10.35" y2="1080"/>
+  <polyline class="cls-1" points="19.37 1023.8 19.37 1014.49 1.32 1014.49 1.32 1023.8"/>
+</svg>
