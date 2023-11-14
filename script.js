@@ -63,11 +63,7 @@ fbxLoader.load('./assets/Boule.fbx', (object) => {
         // document.getElementById('progress').style.width = `${(xhr.loaded / xhr.total) * 100}%`
         if (xhr.loaded == xhr.total) {
             if (isDelayMinPassed) {
-                document.getElementById('loader').style.opacity = 0
-                setTimeout(() => {
-                    document.getElementById('loader').style.display = "none"
-                    document.getElementsByClassName('dg')[0].style.zIndex = 5 //remet l'UI au premier plan (wtf)
-                }, 1500);
+                makeLoadingScreenDisepear()
             }
             isLoaded = true
         }
@@ -77,10 +73,19 @@ fbxLoader.load('./assets/Boule.fbx', (object) => {
     }
 )
 
+function makeLoadingScreenDisepear() {
+    document.getElementById('loader').style.opacity = 0
+    setTimeout(() => {
+        document.getElementById('loader').style.display = "none"
+        document.getElementsByClassName('dg')[0].style.zIndex = 5 //remet l'UI au premier plan (wtf)
+    }, 500);
+
+}
+
 setTimeout(() => {
     isDelayMinPassed = true
     if (isLoaded) {
-        document.getElementById('loader').style.opacity = 0
+        makeLoadingScreenDisepear()
     }
 }, 2500);
 
