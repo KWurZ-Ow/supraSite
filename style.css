@@ -73,17 +73,7 @@ body {
 }
 #loader .title{
     grid-area: title;
-    font-size: 4em;
-    letter-spacing: 30px;
-    animation: titleSchrink 1s ease-in-out;
-}
-@keyframes titleSchrink {
-    from {
-        letter-spacing: 60px;
-    }
-    to {
-        letter-spacing: 30px;
-    }
+    position: fixed;
 }
 .imgTop{
     position: absolute;
