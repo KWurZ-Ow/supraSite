@@ -1,6 +1,6 @@
 import { OrbitControls } from 'https://unpkg.com/three@0.126.0/examples/jsm/controls/OrbitControls.js';
 import Stats from 'https://unpkg.com/three@0.126.0/examples/jsm/libs/stats.module.js';
-import { FBXLoader } from "https://unpkg.com/three@0.126.0/examples/jsm/loaders/FBXLoader.js"
+import { GLTFLoader } from "https://unpkg.com/three@0.126.0/examples/jsm/loaders/GLTFLoader.js"
 
 //===================================================== canvas
 var renderer = new THREE.WebGLRenderer({ alpha: true, antialiase: true });
@@ -44,11 +44,11 @@ document.body.appendChild(stats.dom);
 let mixer
 let modelReady = false
 const animationActions = []
-const fbxLoader = new FBXLoader()
+const gltfLoader = new GLTFLoader()
 let isDelayMinPassed = false
 let isLoaded = false
 
-fbxLoader.load('./assets/Boule.fbx', (object) => {
+gltfLoader.load('./assets/Boule.fbx', (object) => {
     object.scale.set(0.01, 0.01, 0.01)
     mixer = new THREE.AnimationMixer(object)
 
