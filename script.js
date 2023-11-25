@@ -114,7 +114,7 @@ render();
 
 //Interface
 const gui = new dat.GUI()
-gui.add(controls, 'dampingFactor', 0.001, 0.2, 0.01)
+gui.add(controls, 'dampingFactor', 0.0001, 0.2, 0.001)
 
 let menu = document.getElementsByClassName('menu')[0]
 let isMenuOn = false
