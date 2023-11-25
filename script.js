@@ -93,8 +93,8 @@ controls.enableDamping = true;
 controls.dampingFactor = 0.01;
 controls.screenSpacePanning = false;
 controls.minDistance = 10;
-controls.maxDistance = 50;
-controls.maxPolarAngle = Math.PI / 2;
+controls.maxDistance = 35;
+controls.maxPolarAngle = Math.PI ;
 
 var clock = new THREE.Clock();
 function render() {
