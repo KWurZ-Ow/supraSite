@@ -48,15 +48,14 @@ const gltfLoader = new GLTFLoader()
 let isDelayMinPassed = false
 let isLoaded = false
 
-gltfLoader.load('./assets/Boule.fbx', (object) => {
-    object.scale.set(0.01, 0.01, 0.01)
-    mixer = new THREE.AnimationMixer(object)
+gltfLoader.load('./assets/Boule.glb', (object) => {
+    scene.add(object.scene)
+
+    mixer = new THREE.AnimationMixer(object.scene)
 
     const animationAction = mixer.clipAction((object).animations[0])
     animationActions.push(animationAction)
     animationActions[0].play()
-
-    scene.add(object)
 },
     (xhr) => {
         console.log((xhr.loaded / xhr.total) * 100 + '% loaded')
