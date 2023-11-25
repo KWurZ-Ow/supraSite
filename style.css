@@ -93,6 +93,7 @@ body {
 #loader .title{
     grid-area: title;
     position: fixed;
+    width: 50%;
 }
 .imgTop{
     position: absolute;

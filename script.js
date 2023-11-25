@@ -11,7 +11,7 @@ document.getElementById('canva').appendChild(renderer.domElement);
 var scene = new THREE.Scene();
 
 //===================================================== camera
-var camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+var camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 10000);
 camera.position.z = 5;
 camera.position.y = 1.5;
 
@@ -74,7 +74,6 @@ function makeLoadingScreenDisepear() {
     document.getElementById('loader').style.opacity = 0
     setTimeout(() => {
         document.getElementById('loader').style.display = "none"
-        document.getElementsByClassName('dg')[0].style.zIndex = 5 //remet l'UI au premier plan (wtf)
     }, 500);
 
 }
@@ -91,9 +90,9 @@ const controls = new OrbitControls(camera, renderer.domElement);
 controls.listenToKeyEvents(window); // optional
 
 controls.enableDamping = true;
-controls.dampingFactor = 0.05;
+controls.dampingFactor = 0.01;
 controls.screenSpacePanning = false;
-controls.minDistance = 1;
+controls.minDistance = 10;
 controls.maxDistance = 50;
 controls.maxPolarAngle = Math.PI / 2;
 
@@ -110,11 +109,6 @@ function render() {
     renderer.render(scene, camera);
 }
 render();
-
-
-//Interface
-const gui = new dat.GUI()
-gui.add(controls, 'dampingFactor', 0.0001, 0.2, 0.001)
 
 let menu = document.getElementsByClassName('menu')[0]
 let isMenuOn = false
