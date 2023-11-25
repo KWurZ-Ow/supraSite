@@ -48,7 +48,7 @@ const gltfLoader = new GLTFLoader()
 let isDelayMinPassed = false
 let isLoaded = false
 
-gltfLoader.load('./assets/cat908.glb', (gltf) => {
+gltfLoader.load('./assets/Boule.glb', (gltf) => {
     scene.add(gltf.scene)
     
     // gltf.scene.traverse((child) => {
