@@ -48,12 +48,24 @@ const gltfLoader = new GLTFLoader()
 let isDelayMinPassed = false
 let isLoaded = false
 
-gltfLoader.load('./assets/Boule.glb', (object) => {
-    scene.add(object.scene)
+gltfLoader.load('./assets/cat908.glb', (gltf) => {
+    scene.add(gltf.scene)
+    
+    // gltf.scene.traverse((child) => {
+    //     console.log(child)
+    //     if(child.isMesh) {
+    //         child.geometry.computeVertexNormals();
+    //         child.material = new THREE.MeshPhysicalMaterial({
+    //             clearcoat: 1,
+    //             clearcoatRoughness: 0.1,
+    //             transmission: 1,
+    //         });
+    //     }
+    // })
 
-    mixer = new THREE.AnimationMixer(object.scene)
+    mixer = new THREE.AnimationMixer(gltf.scene)
 
-    const animationAction = mixer.clipAction((object).animations[0])
+    const animationAction = mixer.clipAction((gltf).animations[0])
     animationActions.push(animationAction)
     animationActions[0].play()
 },
