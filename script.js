@@ -65,9 +65,11 @@ gltfLoader.load('./assets/Boule.glb', (gltf) => {
 
     mixer = new THREE.AnimationMixer(gltf.scene)
 
-    const animationAction = mixer.clipAction((gltf).animations[0])
-    animationActions.push(animationAction)
-    animationActions[0].play()
+    for (let i = 0; i < 4; i++) {
+        const animationAction = mixer.clipAction((gltf).animations[i])
+        animationActions.push(animationAction)
+        animationActions[i].play()
+    }
 },
     (xhr) => {
         console.log((xhr.loaded / xhr.total) * 100 + '% loaded')
