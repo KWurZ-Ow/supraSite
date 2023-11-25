@@ -5,7 +5,8 @@ import { GLTFLoader } from "https://unpkg.com/three@0.126.0/examples/jsm/loaders
 //===================================================== canvas
 var renderer = new THREE.WebGLRenderer({ alpha: true, antialiase: true });
 renderer.setSize(window.innerWidth, window.innerHeight);
-document.getElementById('canva').appendChild(renderer.domElement);
+let canva = document.getElementById('canva')
+canva.appendChild(renderer.domElement);
 
 //===================================================== scene
 var scene = new THREE.Scene();
@@ -94,14 +95,13 @@ controls.dampingFactor = 0.01;
 controls.screenSpacePanning = false;
 controls.minDistance = 10;
 controls.maxDistance = 35;
-controls.maxPolarAngle = Math.PI ;
+controls.maxPolarAngle = Math.PI;
 
 var clock = new THREE.Clock();
 function render() {
     requestAnimationFrame(render);
     var delta = clock.getDelta();
     if (mixer != null) mixer.update(delta);
-    // if (model) model.rotation.y += 0.010;
     stats.update();
     controls.update();
     if (modelReady) mixer.update(clock.getDelta())
@@ -114,10 +114,36 @@ let menu = document.getElementsByClassName('menu')[0]
 let isMenuOn = false
 
 menu.addEventListener("mouseenter", (e) => {
-    document.getElementById('canva').classList.add("blury")
+    canva.classList.add("blury")
     isMenuOn = true
+    menu.classList.add("opened")
 })
 menu.addEventListener("mouseleave", (e) => {
-    document.getElementById('canva').classList.remove("blury")
+    if (currentPage == 0) {
+        canva.classList.remove("blury")
+    }
     isMenuOn = false
+    menu.classList.remove("opened")
 })
+
+let currentPage = 0
+let page1 = document.getElementById("page1")
+let page2 = document.getElementById("page2")
+let page3 = document.getElementById("page3")
+let pages = [page1, page2, page3]
+
+function loadPage(page) {
+    currentPage = page
+    for (let i = 0; i < 3; i++) {
+        pages[i].style.visibility = i + 1 != page ? "hidden" : "visible"
+    }
+    menu.classList.remove("opened")
+    if (page == 0) canva.classList.remove("blury")
+}
+
+//add onclic on the menu items
+for (let i = 0; i < 4; i++) {
+    menu.children[1].children[i].onclick = () => loadPage(i);
+}
+
+loadPage(0)
