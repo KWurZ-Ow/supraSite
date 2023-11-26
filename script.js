@@ -57,6 +57,7 @@ gltfLoader.load('./assets/Boule.glb', (gltf) => {
     }
 },
     (xhr) => {
+        console.log('xhr', xhr)
         console.log((xhr.loaded / xhr.total) * 100 + '% loaded')
         // document.getElementById('progress').style.width = `${(xhr.loaded / xhr.total) * 100}%`
         if (xhr.loaded == xhr.total) {
