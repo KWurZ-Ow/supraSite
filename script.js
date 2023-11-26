@@ -60,7 +60,7 @@ gltfLoader.load('./assets/Boule.glb', (gltf) => {
         console.log('xhr', xhr)
         console.log((xhr.loaded / xhr.total) * 100 + '% loaded')
         // document.getElementById('progress').style.width = `${(xhr.loaded / xhr.total) * 100}%`
-        if (xhr.loaded == xhr.total) {
+        if (xhr.loaded >= 12996200) {
             if (isDelayMinPassed) {
                 makeLoadingScreenDisepear()
             }
