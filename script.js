@@ -135,7 +135,7 @@ let pages = [page1, page2, page3]
 function loadPage(page) {
     currentPage = page
     for (let i = 0; i < 3; i++) {
-        pages[i].style.visibility = i + 1 != page ? "hidden" : "visible"
+        pages[i].style.display = i + 1 != page ? "none" : "flex"
     }
     menu.classList.remove("opened")
     if (page == 0) canva.classList.remove("blury")

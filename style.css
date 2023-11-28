@@ -11,6 +11,12 @@ body {
     top: 0;
     transition: 0.3s;
 }
+canvas{
+    width: 100vw;
+    height: 100svh;
+    position: absolute;
+    z-index: 3;
+}
 #canva.blury{
     filter: blur(20px);
 }
@@ -29,14 +35,13 @@ body {
     height: 100%;
 }
 .menu li{
-    margin-bottom: 30px;
-    font-size: 1.3rem;
-    /* transition: 0.3s ease-in-out; */
-    /* transform-origin: -15px; */
+    margin-top: 45px;
+    font-size: 20px;
+    color: #cacaca;
 }
 .menu li:hover{
-    /* transform: scale(1.2); */
-    text-shadow: #fff 0 0 13px;
+    text-shadow: white 0 0 13px;
+    color: white;
     cursor: pointer;
 }
 .menu li:active{
@@ -46,7 +51,7 @@ body {
     color: white;
     position: absolute;
     top: 0;
-    padding-left: 25px;
+    padding-left: 24px;
 }
 .menu.opened{
     transform: translateX(0);
@@ -104,12 +109,31 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100svh;
+    height: calc(100svh - 4rem);
     width: 100vw;
+    width: 50vw;
+    padding: 2rem 25vw 2rem 25vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
-canvas{
-    width: 100vw;
-    height: 100svh;
-    position: absolute;
-    z-index: 3;
+.imgTop>div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+div.containerRow{
+    flex-direction: row;
+}
+.containerRow img {
+    height: 250px;
+}
+h1{
+    font-size: 3em;
+}
+h1, h2, h3, h4 {
+    margin: 5px;
+}
+#logoTotoni{
+    height: 50px;
 }
