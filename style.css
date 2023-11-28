@@ -125,7 +125,7 @@ canvas{
 div.containerRow{
     flex-direction: row;
 }
-.containerRow img {
+div.containerRow img {
     height: 250px;
 }
 h1{
@@ -137,3 +137,241 @@ h1, h2, h3, h4 {
 #logoTotoni{
     height: 50px;
 }
+
+
+
+
+/* IXO */
+#star-4
+{
+    position: fixed;
+    display: inline-block;
+
+    background-image: url("./assets/Stars-4.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    opacity: 0.7;
+
+    width: 106%;
+    height: 106%;
+
+    top: -3%;
+    left: -3%;
+
+    opacity: 0.5;
+
+    /*border: solid lightgray 2px;*/
+}
+#star-3
+{
+    position: fixed;
+    display: inline-block;
+
+    background-image: url("./assets/Stars-3.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    width: 104%;
+    height: 104%;
+
+    top: -2%;
+    left: -2%;
+
+    opacity: 0.4;
+
+    /*border: solid green 2px;*/
+}
+#star-2
+{
+    position: fixed;
+    display: inline-block;
+
+    background-image: url("./assets/Stars-2.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    width: 110%;
+    height: 110%;
+
+    top: -5%;
+    left: -5%;
+
+    opacity: 0.6;
+
+    /*border: solid yellow 2px;*/
+}
+#star-1
+{
+    position: fixed;
+    display: inline-block;
+
+    background-image: url("./assets/Stars-1.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    width: 120%;
+    height: 120%;
+
+    top: -10%;
+    left: -10%;
+
+    opacity: 0.2;
+
+    /*border: solid blue 2px;*/
+}
+#tree
+{
+    position: fixed;
+    display: inline-block;
+
+    width: 100%;
+    height: 100%;
+
+    margin: 0;
+
+    /*border: solid red 2px;*/
+}
+
+
+
+.links
+{
+    z-index: -1;
+    position: absolute;
+
+    width: 100%;
+    
+    user-select: none;
+    cursor: default;
+}
+.links path
+{
+    -webkit-filter: drop-shadow(0.15em 0.15em 0.05em #14224d);
+    filter: drop-shadow(0.15em 0.15em 0.05em #14224d);
+}
+
+
+.node
+{
+    position: absolute;
+    display: inline-block;
+
+    width: 3em;
+    height: 3em;
+
+    border-radius: 100%;
+
+    top: 0;
+    left: 5%;
+
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    user-select: none;
+
+    transition: 0.5 background-image;
+}
+
+.placeholder
+{
+    position: absolute;
+    display: inline-block;
+
+    z-index: 1;
+    opacity: 0;
+
+    width: calc(16 * 15vh / 9);
+    height: 15vh;
+
+    margin-top: -500em;
+    margin-left: -10vh;
+
+    background-size: cover;
+    background-repeat: no-repeat;
+
+    transition: 0.2s opacity linear;
+}
+.placeholder:hover
+{
+    margin-top: -500em;
+    opacity: 0;
+}
+
+
+
+.G-1 { background-image: url("./assets/IMG-G/G-1-NO.png"); }
+.G-1:hover { background-image: url("./assets/IMG-G/G-1-OUI.png"); }
+
+.G-2 { background-image: url("./assets/IMG-G/G-2-NO.png"); }
+.G-2:hover { background-image: url("./assets/IMG-G/G-2-OUI.png"); }
+
+.G-3 { background-image: url("./assets/IMG-G/G-3-NO.png"); }
+.G-3:hover { background-image: url("./assets/IMG-G/G-3-OUI.png"); }
+
+.G-4 { background-image: url("./assets/IMG-G/G-4-NO.png"); }
+.G-4:hover { background-image: url("./assets/IMG-G/G-4-OUI.png"); }
+
+.G-5 { background-image: url("./assets/IMG-G/G-5-NO.png"); }
+.G-5:hover { background-image: url("./assets/IMG-G/G-5-OUI.png"); }
+
+.G-6 { background-image: url("./assets/IMG-G/G-6-NO.png"); }
+.G-6:hover { background-image: url("./assets/IMG-G/G-6-OUI.png"); }
+
+.G-7 { background-image: url("./assets/IMG-G/G-7-NO.png"); }
+.G-7:hover { background-image: url("./assets/IMG-G/G-7-OUI.png"); }
+
+
+
+.pch-1-ap {background-image: url("./assets/placeholders/pch_1_ap.png");}
+.pch-2-ap {background-image: url("./assets/placeholders/pch_2_ap.png");}
+.pch-3-ap {background-image: url("./assets/placeholders/pch_3_ap.png");}
+.pch-4-ap {background-image: url("./assets/placeholders/pch_4_ap.png");}
+.pch-5-ap {background-image: url("./assets/placeholders/pch_5_ap.png");}
+.pch-6-ap {background-image: url("./assets/placeholders/pch_6_ap.png");}
+.pch-7-ap {background-image: url("./assets/placeholders/pch_7_ap.png");}
+.pch-8-ap {background-image: url("./assets/placeholders/pch_8_ap.png");}
+.pch-9-ap {background-image: url("./assets/placeholders/pch_9_ap.png");}
+
+
+.pch-1-ca {background-image: url("./assets/placeholders/pch_1_ca.png");}
+.pch-2-ca {background-image: url("./assets/placeholders/pch_2_ca.png");}
+.pch-3-ca {background-image: url("./assets/placeholders/pch_3_ca.png");}
+.pch-4-ca {background-image: url("./assets/placeholders/pch_4_ca.png");}
+.pch-5-ca {background-image: url("./assets/placeholders/pch_5_ca.png");}
+
+
+.pch-1-co {background-image: url("./assets/placeholders/pch_1_co.png");}
+.pch-2-co {background-image: url("./assets/placeholders/pch_2_co.png");}
+.pch-3-co {background-image: url("./assets/placeholders/pch_3_co.png");}
+
+
+.pch-1-in {background-image: url("./assets/placeholders/pch_1_in.png");}
+.pch-2-in {background-image: url("./assets/placeholders/pch_2_in.png");}
+.pch-3-in {background-image: url("./assets/placeholders/pch_3_in.png");}
+.pch-4-in {background-image: url("./assets/placeholders/pch_4_in.png");}
+.pch-5-in {background-image: url("./assets/placeholders/pch_5_in.png");}
+.pch-6-in {background-image: url("./assets/placeholders/pch_6_in.png");}
+
+
+.pch-1-re {background-image: url("./assets/placeholders/pch_1_re.png");}
+
+
+.pch-1-te {background-image: url("./assets/placeholders/pch_1_te.png");}
+.pch-2-te {background-image: url("./assets/placeholders/pch_2_te.png");}
+.pch-3-te {background-image: url("./assets/placeholders/pch_3_te.png");}
+.pch-4-te {background-image: url("./assets/placeholders/pch_4_te.png");}
+.pch-5-te {background-image: url("./assets/placeholders/pch_5_te.png");}
+.pch-6-te {background-image: url("./assets/placeholders/pch_6_te.png");}
+.pch-7-te {background-image: url("./assets/placeholders/pch_7_te.png");}
+.pch-8-te {background-image: url("./assets/placeholders/pch_8_te.png");}
+.pch-9-te {background-image: url("./assets/placeholders/pch_9_te.png");}
+
+
+.pch-1-vi {background-image: url("./assets/placeholders/pch_1_vi.png");}
+
+
+.osef1 {background-image: url("./assets/placeholders/osef1.png");}
+.osef2 {background-image: url("./assets/placeholders/osef2.png");}
+.osef3 {background-image: url("./assets/placeholders/osef3.png");}
+.osef4 {background-image: url("./assets/placeholders/osef4.png");}
