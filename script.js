@@ -112,10 +112,13 @@ render();
 
 let menu = document.getElementsByClassName('menu')[0]
 let isMenuOn = false
+let soundOpenMLenu = new Audio("./assets/sounds/openMenu.mp3")
+let soundCloseMLenu = new Audio("./assets/sounds/closeMenu.mp3")
 
 menu.addEventListener("mouseenter", (e) => {
     canva.classList.add("blury")
     isMenuOn = true
+    soundOpenMLenu.play()
     menu.classList.add("opened")
 })
 menu.addEventListener("mouseleave", (e) => {
@@ -123,8 +126,19 @@ menu.addEventListener("mouseleave", (e) => {
         canva.classList.remove("blury")
     }
     isMenuOn = false
+    soundCloseMLenu.play()
     menu.classList.remove("opened")
 })
+
+let menuItems = Array.prototype.slice.call(document.getElementsByClassName("menuItem"))
+let hoverSounds = []
+
+menuItems.forEach((item, i) => {
+    hoverSounds.push(new Audio("./assets/sounds/hoverMenu.mp3"))
+    item.addEventListener("mouseenter", (e) => {
+        hoverSounds[i].play()
+    })
+});
 
 let currentPage = 0
 let page1 = document.getElementById("page1")
@@ -135,7 +149,12 @@ let pages = [page1, page2, page3]
 function loadPage(page) {
     currentPage = page
     for (let i = 0; i < 3; i++) {
-        pages[i].style.display = i + 1 != page ? "none" : "flex"
+        // pages[i].style.display = i + 1 != page ? "none" : "flex"
+        if (i+1 != page){
+            pages[i].classList.remove("visible")
+        }else{
+            pages[i].classList.add("visible")
+        }
     }
     menu.classList.remove("opened")
     if (page == 0) canva.classList.remove("blury")
