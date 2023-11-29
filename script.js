@@ -16,7 +16,7 @@ camera.position.z = 5;
 camera.position.y = 1.5;
 
 //===================================================== lights
-var keyLight = new THREE.PointLight(0xefefff, 5);
+var keyLight = new THREE.PointLight(0xefefff, 10);
 keyLight.position.set(10, 7.1, 2.6)
 keyLight.distance = 50
 scene.add(keyLight);
@@ -80,7 +80,7 @@ function makeLoadingScreenDisepear() {
 setTimeout(() => {
     isDelayMinPassed = true
     if (isLoaded) {
-        makeLoadingScreenDisepear()
+        // makeLoadingScreenDisepear()
     }
 }, 2500);
 
