@@ -155,7 +155,24 @@ h1, h2, h3, h4 {
     position: absolute;
     top: -70px;
 }
+#egg{
+    position: absolute;
+    height: 200px;
+    top: -50vh;
+    right: -50vw;
+}
+#egg.active{
+    animation: spin 3s 1 linear;
+}
 
+@keyframes spin {
+    from{
+        transform: rotate(0deg);
+    }
+    to {
+        transform: translate(-150vw, 150vh) rotate(180deg);
+    }
+}
 
 
 
