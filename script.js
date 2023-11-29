@@ -56,8 +56,8 @@ gltfLoader.load('./assets/Boule.glb', (gltf) => {
 },
     (xhr) => {
         console.log((xhr.loaded / xhr.total) * 100 + '% loaded')
-        // document.getElementById('progress').style.width = `${(xhr.loaded / xhr.total) * 100}%`
-        if (xhr.loaded == xhr.total || xhr.loaded >= 12996200) {
+        console.log('poids de ta mere :', xhr.loaded)
+        if (xhr.loaded == xhr.total || xhr.loaded >= 7674928) {
             if (isDelayMinPassed) {
                 makeLoadingScreenDisepear()
             }
