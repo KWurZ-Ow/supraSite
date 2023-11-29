@@ -17,7 +17,7 @@ canvas{
     position: absolute;
     z-index: 3;
 }
-#canva.blury{
+#canvaContainer.blury{
     filter: blur(20px);
 }
 .menu{
@@ -150,6 +150,10 @@ h1, h2, h3, h4 {
 }
 #logoTotoni{
     height: 50px;
+}
+#canvaContainer img{
+    position: absolute;
+    top: -70px;
 }
 
 

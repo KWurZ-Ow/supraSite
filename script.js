@@ -112,15 +112,17 @@ let isMenuOn = false
 let soundOpenMLenu = new Audio("./assets/sounds/openMenu.mp3")
 let soundCloseMLenu = new Audio("./assets/sounds/closeMenu.mp3")
 
+let canvaContainer = document.getElementById("canvaContainer")
+
 menu.addEventListener("mouseenter", (e) => {
-    canva.classList.add("blury")
+    canvaContainer.classList.add("blury")
     isMenuOn = true
     soundOpenMLenu.play()
     menu.classList.add("opened")
 })
 menu.addEventListener("mouseleave", (e) => {
     if (currentPage == 0) {
-        canva.classList.remove("blury")
+        canvaContainer.classList.remove("blury")
     }
     isMenuOn = false
     soundCloseMLenu.play()
@@ -146,7 +148,6 @@ let pages = [page1, page2, page3]
 function loadPage(page) {
     currentPage = page
     for (let i = 0; i < 3; i++) {
-        // pages[i].style.display = i + 1 != page ? "none" : "flex"
         if (i+1 != page){
             pages[i].classList.remove("visible")
         }else{
@@ -154,7 +155,7 @@ function loadPage(page) {
         }
     }
     menu.classList.remove("opened")
-    if (page == 0) canva.classList.remove("blury")
+    if (page == 0) canvaContainer.classList.remove("blury")
 }
 
 //add onclic on the menu items
