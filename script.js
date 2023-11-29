@@ -1,5 +1,4 @@
 import { OrbitControls } from 'https://unpkg.com/three@0.126.0/examples/jsm/controls/OrbitControls.js';
-import Stats from 'https://unpkg.com/three@0.126.0/examples/jsm/libs/stats.module.js';
 import { GLTFLoader } from "https://unpkg.com/three@0.126.0/examples/jsm/loaders/GLTFLoader.js"
 
 //===================================================== canvas
@@ -17,12 +16,14 @@ camera.position.z = 5;
 camera.position.y = 1.5;
 
 //===================================================== lights
-var keyLight = new THREE.DirectionalLight(0xefefff, 5);
+var keyLight = new THREE.PointLight(0xefefff, 5);
 keyLight.position.set(10, 7.1, 2.6)
+keyLight.distance = 50
 scene.add(keyLight);
 
-var fillLight = new THREE.DirectionalLight(0xffefef, 0.3);
+var fillLight = new THREE.PointLight(0xffefef, 0.3);
 fillLight.position.set(-2, -2, -2)
+fillLight.distance = 50
 scene.add(fillLight);
 
 //===================================================== resize
@@ -33,9 +34,6 @@ window.addEventListener("resize", function () {
     camera.aspect = width / height;
     camera.updateProjectionMatrix();
 });
-
-const stats = new Stats();
-document.body.appendChild(stats.dom);
 
 //===================================================== model
 let mixer
@@ -102,7 +100,6 @@ function render() {
     requestAnimationFrame(render);
     var delta = clock.getDelta();
     if (mixer != null) mixer.update(delta);
-    stats.update();
     controls.update();
     if (modelReady) mixer.update(clock.getDelta())
 
