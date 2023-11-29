@@ -80,7 +80,7 @@ function makeLoadingScreenDisepear() {
 setTimeout(() => {
     isDelayMinPassed = true
     if (isLoaded) {
-        // makeLoadingScreenDisepear()
+        makeLoadingScreenDisepear()
     }
 }, 2500);
 
