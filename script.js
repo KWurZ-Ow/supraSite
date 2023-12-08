@@ -176,16 +176,20 @@ for (let i = 0; i < 4; i++) {
 }
 
 //easterEgg
+let soundEgg = new Audio("./assets/sounds/probe.mp3")
 let easterClicks = 0
 const logo = document.getElementById("logoTotoni")
 const egg = document.getElementById("egg")
 logo.onclick = () => {
     easterClicks++
-    if (easterClicks > 9) {
-        egg.classList.add("active")
+    if (easterClicks > 5) {
+        soundEgg.play()
         setTimeout(() => {
-            egg.classList.remove("active")
-        }, 4000);
+            egg.classList.add("active")
+            setTimeout(() => {
+                egg.classList.remove("active")
+            }, 4000);
+        }, 900);
         easterClicks = 0
     }
 
