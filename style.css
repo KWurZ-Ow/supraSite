@@ -17,8 +17,11 @@ canvas{
     position: absolute;
     z-index: 3;
 }
+#canvaContainer {
+    transition: filter 0.3s ease;
+}
 #canvaContainer.blury{
-    filter: blur(20px);
+    filter: blur(10px);
 }
 .menu{
     background-color: rgb(0, 0, 0);
@@ -110,6 +113,18 @@ canvas{
     position: fixed;
     width: 50%;
 }
+
+#sound {
+    position: absolute;
+    filter: invert();
+    z-index: 4;
+    margin: 10px;
+    width: 25px;
+}
+#sound:hover {
+    cursor: pointer;
+}
+
 .imgTop{
     position: absolute;
     z-index: 4;
@@ -154,6 +169,7 @@ h1, h2, h3, h4 {
 #canvaContainer img{
     position: absolute;
     top: -70px;
+    width: 100%;
 }
 #egg{
     position: absolute;

@@ -109,15 +109,27 @@ render();
 
 let menu = document.getElementsByClassName('menu')[0]
 let isMenuOn = false
+
 let soundOpenMLenu = new Audio("./assets/sounds/openMenu.mp3")
 let soundCloseMLenu = new Audio("./assets/sounds/closeMenu.mp3")
+
+let isSoundOn = true
+let soundButton = document.getElementById('sound')
+soundButton.onclick = () => {
+    isSoundOn = !isSoundOn
+    if (isSoundOn) {
+        soundButton.src = "./assets/volume.png"
+    }else{
+        soundButton.src = "./assets/mute.png"
+    }
+}
 
 let canvaContainer = document.getElementById("canvaContainer")
 
 menu.addEventListener("mouseenter", (e) => {
     canvaContainer.classList.add("blury")
     isMenuOn = true
-    soundOpenMLenu.play()
+    if (isSoundOn) soundOpenMLenu.play()
     menu.classList.add("opened")
 })
 menu.addEventListener("mouseleave", (e) => {
@@ -125,7 +137,7 @@ menu.addEventListener("mouseleave", (e) => {
         canvaContainer.classList.remove("blury")
     }
     isMenuOn = false
-    soundCloseMLenu.play()
+    if (isSoundOn) soundCloseMLenu.play()
     menu.classList.remove("opened")
 })
 
@@ -135,7 +147,7 @@ let hoverSounds = []
 menuItems.forEach((item, i) => {
     hoverSounds.push(new Audio("./assets/sounds/hoverMenu.mp3"))
     item.addEventListener("mouseenter", (e) => {
-        hoverSounds[i].play()
+        if (isSoundOn) hoverSounds[i].play()
     })
 });
 
