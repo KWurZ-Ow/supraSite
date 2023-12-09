@@ -56,8 +56,7 @@ gltfLoader.load('./assets/Boule.glb', (gltf) => {//totoni mettre ton modele
 },
     (xhr) => {
         console.log((xhr.loaded / xhr.total) * 100 + '% loaded')
-        console.log('poids de ta mere :', xhr.loaded)
-        if (xhr.loaded >= 7674928) { //totoni mettre le poids a 54145650
+        if (xhr.loaded >= xhr.total) {
             if (isDelayMinPassed) {
                 demandClick()
             }
@@ -76,7 +75,7 @@ function demandClick(){
 }
 
 function makeLoadingScreenDisepear() {
-    new Audio("./assets/sounds/in.wav").play()
+    new Audio("./assets/sounds/in.mp3").play()
     loader.style.opacity = 0
     setTimeout(() => {
         loader.style.display = "none"
