@@ -43,7 +43,7 @@ const gltfLoader = new GLTFLoader()
 let isDelayMinPassed = false
 let isLoaded = false
 
-gltfLoader.load('./assets/Boule.glb', (gltf) => {
+gltfLoader.load('./assets/Boule.glb', (gltf) => {//totoni mettre ton modele
     scene.add(gltf.scene)
 
     mixer = new THREE.AnimationMixer(gltf.scene)
@@ -57,9 +57,9 @@ gltfLoader.load('./assets/Boule.glb', (gltf) => {
     (xhr) => {
         console.log((xhr.loaded / xhr.total) * 100 + '% loaded')
         console.log('poids de ta mere :', xhr.loaded)
-        if (xhr.loaded == xhr.total || xhr.loaded >= 7674928) {
+        if (xhr.loaded >= 7674928) { //totoni mettre le poids a 54145650
             if (isDelayMinPassed) {
-                makeLoadingScreenDisepear()
+                demandClick()
             }
             isLoaded = true
         }
@@ -69,11 +69,17 @@ gltfLoader.load('./assets/Boule.glb', (gltf) => {
     }
 )
 
+let loader = document.getElementById('loader')
+function demandClick(){
+    loader.onclick = () => makeLoadingScreenDisepear()
+    loader.classList.add("loaded")
+}
+
 function makeLoadingScreenDisepear() {
     new Audio("./assets/sounds/in.wav").play()
-    document.getElementById('loader').style.opacity = 0
+    loader.style.opacity = 0
     setTimeout(() => {
-        document.getElementById('loader').style.display = "none"
+        loader.style.display = "none"
     }, 500);
 
 }
@@ -81,13 +87,13 @@ function makeLoadingScreenDisepear() {
 setTimeout(() => {
     isDelayMinPassed = true
     if (isLoaded) {
-        makeLoadingScreenDisepear()
+        demandClick()
     }
 }, 2500);
 
 
 const controls = new OrbitControls(camera, renderer.domElement);
-controls.listenToKeyEvents(window); // optional
+controls.listenToKeyEvents(window);
 
 controls.enableDamping = true;
 controls.dampingFactor = 0.01;
