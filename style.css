@@ -55,6 +55,7 @@ canvas{
     position: absolute;
     top: 0;
     padding-left: 24px;
+    list-style: none;
 }
 .menu.opened{
     transform: translateX(0);

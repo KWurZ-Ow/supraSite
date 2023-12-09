@@ -70,6 +70,7 @@ gltfLoader.load('./assets/Boule.glb', (gltf) => {
 )
 
 function makeLoadingScreenDisepear() {
+    new Audio("./assets/sounds/in.wav").play()
     document.getElementById('loader').style.opacity = 0
     setTimeout(() => {
         document.getElementById('loader').style.display = "none"
