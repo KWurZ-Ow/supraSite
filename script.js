@@ -74,8 +74,12 @@ function demandClick(){
     loader.classList.add("loaded")
 }
 
+let ambiant = new Audio("./assets/sounds/ambiant.mp3")
+let audioIn = new Audio("./assets/sounds/in.mp3")
 function makeLoadingScreenDisepear() {
-    new Audio("./assets/sounds/in.mp3").play()
+    audioIn.play()
+    ambiant.play()
+    ambiant.volume = 0.2
     loader.style.opacity = 0
     setTimeout(() => {
         loader.style.display = "none"
@@ -125,8 +129,11 @@ soundButton.onclick = () => {
     isSoundOn = !isSoundOn
     if (isSoundOn) {
         soundButton.src = "./assets/volume.png"
+        ambiant.play()
     }else{
         soundButton.src = "./assets/mute.png"
+        ambiant.pause()
+        audioIn.pause()
     }
 }
 
