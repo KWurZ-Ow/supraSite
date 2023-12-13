@@ -48,7 +48,7 @@ gltfLoader.load('./assets/Boule.glb', (gltf) => {//totoni mettre ton modele
 
     mixer = new THREE.AnimationMixer(gltf.scene)
 
-    for (let i = 0; i < 1; i++) {//totoni mettre i < 4 au lieu de i < 1
+    for (let i = 0; i < 4; i++) {//totoni mettre i < 4 au lieu de i < 1
         const animationAction = mixer.clipAction((gltf).animations[i])
         animationActions.push(animationAction)
         animationActions[i].play()
