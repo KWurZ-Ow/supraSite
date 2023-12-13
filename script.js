@@ -48,7 +48,7 @@ gltfLoader.load('./assets/Boule.glb', (gltf) => {//totoni mettre ton modele
 
     mixer = new THREE.AnimationMixer(gltf.scene)
 
-    for (let i = 0; i < 4; i++) {
+    for (let i = 0; i < 1; i++) {//totoni mettre i < 4 au lieu de i < 1
         const animationAction = mixer.clipAction((gltf).animations[i])
         animationActions.push(animationAction)
         animationActions[i].play()
@@ -405,15 +405,29 @@ async function createNodes() {
         let pHolder = document.createElement("span")
         pHolder.classList.add("placeholder")
         pHolder.classList.add(nodeOrigs[i].pch)
+        if (nodeOrigs[i].pch == "pch-2-ca" || nodeOrigs[i].pch == "pch-1-co")
+            pHolder.classList.add("bottom-pch")
         node.appendChild(pHolder)
 
+        let pHolderZoomed = document.createElement("span")
+        pHolderZoomed.classList.add("pch-zoomed")
+        pHolderZoomed.classList.add(nodeOrigs[i].pch)
+        node.appendChild(pHolderZoomed)
+
         let overEvent = e => {
-            if (!isClicking) {
-                if (e.target.querySelector(".placeholder") != null) {
-                    e.target.querySelector(".placeholder").style.marginTop = "-15vh"
-                    e.target.querySelector(".placeholder").style.opacity = "1"
+            if (!isClicking)
+            {
+                let pch = e.target.querySelector(".placeholder")
+                if (pch != null) {
+                    if (pch.classList.contains("bottom-pch"))
+                        pch.style.marginTop = "5vh"
+                    else
+                        pch.style.marginTop = "-15vh"                   
+
+                    pch.style.opacity = "1"
                 }
-                else {
+                else
+                {
                     e.target.style.marginTop = "-500em"
                     e.target.style.opacity = "0"
                 }
@@ -426,5 +440,19 @@ async function createNodes() {
             e.target.querySelector(".placeholder").style.opacity = "0"
         }
         node.addEventListener('mouseleave', outEvent)
+        node.addEventListener('click', e => {
+            if (!e.target.classList.contains("G-1"))
+            {
+                document.querySelector("#pch-zoom").classList.add(e.target.querySelector(".placeholder").classList[1])
+                document.querySelector("#zoom-pch-bg").style.display = "flex"
+                document.querySelector("#pch-zoom").style.display = "block"
+            }
+        })
     }
+
+    document.querySelector("#zoom-pch-bg").addEventListener('click', e => {
+        e.target.querySelector("#pch-zoom").style.display = "none"
+        e.target.style.display = "none"
+        document.querySelector("#pch-zoom").classList.remove(document.querySelector("#pch-zoom").classList[0])
+    })
 }
