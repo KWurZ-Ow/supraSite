@@ -414,9 +414,19 @@ h4 {
     transition: 0.2s opacity linear;
 }
 
-.placeholder:hover {
-    margin-top: -500em;
-    opacity: 0;
+.zoom-pch
+{
+    position: fixed;
+    
+    opacity: 1;
+
+    width: 25em;
+    height: 25em;
+
+    left: calc(50% - 25em);
+    right: calc(50% - 25em);
+
+    margin: 0;
 }
 
 
