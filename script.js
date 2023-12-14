@@ -73,9 +73,9 @@ function demandClick(){
     loader.onclick = () => makeLoadingScreenDisepear()
     loader.classList.add("loaded")
 }
-
-let ambiant = new Audio("./assets/sounds/ambiant.mp3")
-let audioIn = new Audio("./assets/sounds/in.mp3")
+const blegg = window.location.search === "?b" ? "2" : ""
+let ambiant = new Audio(`./assets/sounds/ambiant${blegg}.mp3`)
+let audioIn = new Audio(`./assets/sounds/in${blegg}.mp3`)
 function makeLoadingScreenDisepear() {
     audioIn.play()
     ambiant.play()
@@ -120,8 +120,8 @@ render();
 let menu = document.getElementsByClassName('menu')[0]
 let isMenuOn = false
 
-let soundOpenMLenu = new Audio("./assets/sounds/openMenu.mp3")
-let soundCloseMLenu = new Audio("./assets/sounds/closeMenu.mp3")
+let soundOpenMLenu = new Audio(`./assets/sounds/openMenu${blegg}.mp3`)
+let soundCloseMLenu = new Audio(`./assets/sounds/closeMenu${blegg}.mp3`)
 
 let isSoundOn = true
 let soundButton = document.getElementById('sound')
@@ -158,7 +158,7 @@ let menuItems = Array.prototype.slice.call(document.getElementsByClassName("menu
 let hoverSounds = []
 
 menuItems.forEach((item, i) => {
-    hoverSounds.push(new Audio("./assets/sounds/hoverMenu.mp3"))
+    hoverSounds.push(new Audio(`./assets/sounds/hoverMenu${blegg}.mp3`))
     item.addEventListener("mouseenter", (e) => {
         if (isSoundOn) hoverSounds[i].play()
     })
