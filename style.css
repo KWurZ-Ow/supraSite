@@ -440,8 +440,9 @@ h4 {
 #pch-zoom
 {
     /*w = 0.75 * h*/
-    width: 56.3vw;
-    height: 75svh;
+    /*w = 1200 ; h = 950*/
+    width: 54em;
+    height: 42em;
 
     background-size: cover;
     background-repeat: no-repeat;
