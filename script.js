@@ -274,19 +274,10 @@ function zoom(event) {
 }
 
 
-// Links creation from a .json file
-let canTextChange = true
-let isClicking = false
-function createLinks() {
-    for (let i = 0; i < 39; i++) {
-        let link = document.createElement("span")
-        link.classList.add("links")
-        document.querySelector("#star-1").appendChild(link)
-    }
-}
 
 
 // Affiliate the links to each node
+let isClicking = false
 let linkVal = []
 async function addLinks() {
     let res = await fetch("./assets/json/links.json")
@@ -340,16 +331,10 @@ let prevInput = { x: 0, y: 0 }
 let x = 0, y = 0
 
 const MAX_OFF = 50
-const STAR4_OFF = 3 * window.innerWidth / 100
-const STAR3_OFF = 2 * window.innerWidth / 100
-const STAR2_OFF = 5 * window.innerWidth / 100
 const STAR1_OFF = 10 * window.innerWidth / 100
 
 function moveBgStars(event) {
     if (isClicking) {
-        let star4 = document.querySelector("#star-4")
-        let star3 = document.querySelector("#star-3")
-        let star2 = document.querySelector("#star-2")
         let star1 = document.querySelector("#star-1")
         let tree = document.querySelector("#tree")
 
@@ -368,15 +353,6 @@ function moveBgStars(event) {
 
         star1.style.left = (0.9 * x - STAR1_OFF) + "px"
         star1.style.top = (0.9 * y - STAR1_OFF / 2) + "px"
-
-        star2.style.left = (0.5 * x - STAR2_OFF) + "px"
-        star2.style.top = (0.5 * y - STAR2_OFF / 2) + "px"
-
-        star3.style.left = (0.2 * x - STAR3_OFF) + "px"
-        star3.style.top = (0.2 * y - STAR3_OFF / 2) + "px"
-
-        star4.style.left = (0.3 * x - STAR4_OFF) + "px"
-        star4.style.top = (0.3 * y - STAR4_OFF / 2) + "px"
     }
 
     prevInput.x = event.pageX
